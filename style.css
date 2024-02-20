@@ -68,3 +68,7 @@ form button{
     cursor: pointer;
 
 }
+.footer{
+    
+    justify-content: space-between;
+}

@@ -53,7 +53,7 @@ img.src=newSrc;
         let rate=response.data[toCurr.value.toLowerCase()];
         
         let finalAmount=amtVal*rate;
-        msg.innerText=`${amtVal} ${fromCurr.value}=${finalAmount.toFixed(4)}${toCurr.value}`
+        msg.innerText=`${amtVal} ${fromCurr.value}=${finalAmount.toFixed(4)} ${toCurr.value}`
  }
  
  btn.addEventListener("click",(evt)=>{
