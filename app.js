@@ -1,4 +1,4 @@
-const Base_url="https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies";
+const Base_url="https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies";
 
  const dropdown=document.querySelectorAll(".dropdown select");
  const btn=document.querySelector("form button");
@@ -36,7 +36,7 @@ const updateFlag= (element)=>{
    //  console.log(currcode);
 
     let countrycode= countryList[currcode];
-    console.log(countrycode);
+    //console.log(countrycode);
 let newSrc=`https://flagsapi.com/${countrycode}/flat/64.png`
 let img=element.parentElement.querySelector("img");
 img.src=newSrc;
@@ -48,9 +48,10 @@ img.src=newSrc;
         amtVal=1;
         amount.value="1";
     }
-        const URL=`${Base_url}/${fromCurr.value.toLowerCase()}/${toCurr.value.toLowerCase()}.json`;
+        const URL=`${Base_url}/${fromCurr.value.toLowerCase()}.json`;
         let response=await axios.get(URL);
-        let rate=response.data[toCurr.value.toLowerCase()];
+        
+        let rate = response.data[fromCurr.value.toLowerCase()][toCurr.value.toLowerCase()];
         
         let finalAmount=amtVal*rate;
         msg.innerText=`${amtVal} ${fromCurr.value}=${finalAmount.toFixed(4)} ${toCurr.value}`
